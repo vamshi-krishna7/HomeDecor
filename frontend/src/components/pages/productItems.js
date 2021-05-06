@@ -5,26 +5,25 @@ import {Link} from 'react-router-dom';
 const ProductItem = (props) => {
     const {name, image, _id, price, numReviews, rating } = props.singleProduct;
     return (
-        <Card className="my-3 p-2">
-            <Link to={`/products/${_id}`}>
-                <Card.Img variant="top" src={image} />
-            </Link>
-            <Card.Body>
-                <Link to={`/products/${_id}`} >
-                    <Card.Title as="div" className="text-dark">
-                        <strong>
-                            {name} 
-                        </strong>
-                    </Card.Title>
-                </Link>
-                <Card.Text as='div'>
-                <Card.Text>
-                    {`${rating} from ${numReviews} reviews`}
-                </Card.Text>
-                </Card.Text>
-                <Card.Text as='h3'>{price}</Card.Text>
-            </Card.Body>
-        </Card>  
+        <Card className='my-3 p-3 rounded'>
+      <Link to={`/product/${_id}`}>
+        <Card.Img src={image} variant='top' />
+      </Link>
+
+      <Card.Body>
+        <Link to={`/product/${_id}`}>
+          <Card.Title as='div'>
+            <strong>{name}</strong>
+          </Card.Title>
+        </Link>
+
+        <Card.Text>
+            {rating} star ratings
+        </Card.Text>
+
+        <Card.Text as='h3'>${price}</Card.Text>
+      </Card.Body>
+    </Card> 
     )
 }
 
