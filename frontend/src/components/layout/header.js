@@ -1,6 +1,8 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
     return (
@@ -13,7 +15,10 @@ const Header = () => {
                         <Nav.Link>Home</Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/">
-                        <Nav.Link>Cart</Nav.Link>
+                        <Nav.Link><FontAwesomeIcon icon={faUser} className="mr-2"/>Profile</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/">
+                        <Nav.Link><FontAwesomeIcon icon={faShoppingCart} className="mr-2"/>Cart</Nav.Link>
                     </LinkContainer>
                     </Nav> 
                 </Container> 

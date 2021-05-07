@@ -3,13 +3,14 @@ import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import {Col, Row, ListGroup, ListGroupItem, Image, Card, Button} from 'react-bootstrap';
 import products from '../../products';
+import '../../App.css';
 
 const ProductInfo = (props) => {
     const product = products.find((singleProduct) => singleProduct._id === props.match.params.id)
     const {image, name, description, rating, price, countInStock} = product;
     return (
         <Fragment>
-            <Link to="/" className="btn btn-primary my-3">Go Back</Link>
+            <Link to="/" className="btn btn-outline-dark my-3">Go Back</Link>
             <Row>
                 <Col md={6} className="my-auto"> 
                     <Image src={image} alt="product" fluid  />
