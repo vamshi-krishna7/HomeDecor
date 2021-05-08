@@ -1,10 +1,12 @@
 const express = require('express');
 const dotenv = require('dotenv');
 
+const connectDb = require('./db');
 const products = require('./products');
 
+dotenv.config({path: 'config/.env'})
 const app = express();
-dotenv.config({path: 'backend/config/.env'})
+connectDb();
 
 console.log(process.env.MODE)
 console.log(process.env.PORT)

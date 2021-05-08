@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Row, Col, Container } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import ProductItem from './productItems';
 import axios from 'axios';
 

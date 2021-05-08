@@ -14,7 +14,7 @@ const ProductInfo = (props) => {
           setSinglePoduct(res.data)
         }
         getSingleProduct()
-      }, [])
+      }, [props.match])
 
     const {image, name, description, rating, price, countInStock} = singleProduct;
     return (
@@ -31,7 +31,7 @@ const ProductInfo = (props) => {
                         <ListGroupItem >{description}</ListGroupItem>
                     </ListGroup>
                     <Card className="text-center">
-                            <ListGroupItem>{price}</ListGroupItem>
+                            <ListGroupItem>$ {price}</ListGroupItem>
                             <ListGroupItem className="mb-2 text-muted">Status: {countInStock > 0 ? 'In stock' : 'Out of stock'}</ListGroupItem>
                             <ListGroupItem><Button disabled={countInStock === 0} variant="dark" block>Buy Now</Button></ListGroupItem>
                     </Card>

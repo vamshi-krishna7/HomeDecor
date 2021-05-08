@@ -1,10 +1,10 @@
 import React from 'react';
-import {Card, Button} from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
 const ProductItem = (props) => {
 
-    const {name, image, _id, price, numReviews, rating } = props.singleProduct;
+    const {name, image, _id, price, rating } = props.singleProduct;
 
     return (
         <Card className='my-3 p-3'>
