@@ -1,13 +1,22 @@
-import React from 'react';
-import { Fragment } from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import {Col, Row, ListGroup, ListGroupItem, Image, Card, Button} from 'react-bootstrap';
-import products from '../../products';
 import '../../App.css';
+import axios from 'axios';
 
 const ProductInfo = (props) => {
-    const product = products.find((singleProduct) => singleProduct._id === props.match.params.id)
-    const {image, name, description, rating, price, countInStock} = product;
+
+    const [singleProduct, setSinglePoduct] = useState({})
+
+    useEffect(() => {
+        const getSingleProduct = async() => {
+          const res = await axios.get(`/products/${props.match.params.id}`)
+          setSinglePoduct(res.data)
+        }
+        getSingleProduct()
+      }, [])
+
+    const {image, name, description, rating, price, countInStock} = singleProduct;
     return (
         <Fragment>
             <Link to="/" className="btn btn-outline-dark my-3">Go Back</Link>
