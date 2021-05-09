@@ -19,12 +19,12 @@ const ProductInfo = (props) => {
     const {image, name, description, rating, price, countInStock} = singleProduct;
     return (
         <Fragment>
-            <Link to="/" className="btn btn-outline-dark my-3">Go Back</Link>
+            <Link to="/" className="btn btn-outline-dark my-3" ><span className="btn-go-back">&larr; Back</span></Link>
             <Row>
-                <Col md={6} className="my-auto"> 
+                <Col md={6} className="my-auto custom-border"> 
                     <Image src={image} alt="product" fluid  />
                 </Col>
-                <Col md={6} > 
+                <Col md={6}> 
                     <ListGroup variant="flush" className="text-center" >
                         <ListGroupItem><h3 >{name}</h3></ListGroupItem>
                         <ListGroupItem >{rating} rating</ListGroupItem>
