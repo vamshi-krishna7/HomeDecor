@@ -2,25 +2,27 @@ import React, {Fragment, useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import {Col, Row, ListGroup, ListGroupItem, Image, Card, Button} from 'react-bootstrap';
 import '../../App.css';
-import axios from 'axios';
+import {useSelector, useDispatch} from 'react-redux';
+import {getProductInfo, setLoading} from '../../actions/productAction';
+import Loading from '../utils/loading';
 
 const ProductInfo = (props) => {
-
-    const [singleProduct, setSinglePoduct] = useState({})
+    const dispatch = useDispatch()
+    const productInformation = useSelector(state => state.productInfo)
+    const {loading, productInfo} = productInformation;
 
     useEffect(() => {
-        const getSingleProduct = async() => {
-          const res = await axios.get(`/products/${props.match.params.id}`)
-          setSinglePoduct(res.data)
-        }
-        getSingleProduct()
+        dispatch(setLoading())
+        dispatch(getProductInfo(props.match.params.id))
       }, [props.match])
 
-    const {image, name, description, rating, price, countInStock} = singleProduct;
+    const {image, name, description, rating, price, countInStock} = productInfo;
     return (
-        <Fragment>
-            <Link to="/" className="btn btn-outline-dark my-3" ><span className="btn-go-back">&larr; Back</span></Link>
-            <Row>
+            loading ? <Loading /> : 
+            (
+                <Fragment>
+                <Link to="/" className="btn btn-outline-dark my-3" ><span className="btn-go-back">&larr; Back</span></Link>
+                <Row>
                 <Col md={6} className="my-auto custom-border"> 
                     <Image src={image} alt="product" fluid  />
                 </Col>
@@ -37,7 +39,8 @@ const ProductInfo = (props) => {
                     </Card>
                 </Col>
             </Row>
-        </Fragment>
+            </Fragment>
+            )
     )
 }
 

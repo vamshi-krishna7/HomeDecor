@@ -1,26 +1,28 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import ProductItem from './productItems';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import {getAllProducts, setLoading} from '../../actions/productAction';
+import Loading from '../utils/loading';
 
 const Home = () => {
-
-    const [product, setProduct] = useState([])
+    const dispatch = useDispatch()
+    const productList = useSelector(state => state.productList)
+    const { loading, products } = productList;
+    console.log(products, loading)
 
     useEffect(() => {
-        const getProducts = async() => {
-          const res = await axios.get('/products')
-          setProduct(res.data)
-        }
-        getProducts()
-      }, [])
+        dispatch(setLoading())
+        dispatch(getAllProducts())
+        
+      }, [dispatch])
 
     return (
         <Fragment>
             <h1 className="text-center">Latest products</h1>
             <Row>
             {   
-                product.map((singleProduct) => (
+                loading ? <Loading /> : products.map((singleProduct) => (
                 <Col sm={12} md={6} lg={4} xl={3} key={singleProduct._id}>
                     <ProductItem singleProduct={singleProduct} />
                 </Col>
