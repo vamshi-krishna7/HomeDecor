@@ -20,6 +20,7 @@ export const setLoading = () => {
 
 export const getProductInfo = (id) => async(dispatch) => {
     const res = await axios.get(`/products/${id}`)
+    console.log(res)
     dispatch({
         type: GET_PRODUCT_INFO,
         payload: res.data,

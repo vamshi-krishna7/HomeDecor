@@ -19,6 +19,11 @@ const [qty, setQty] = useState(1)
       }, [props.match])
 
     const {image, name, description, rating, price, countInStock} = productInfo;
+
+
+    const  addToCartHandler = () => {
+        props.history.push(`/cart/${props.match.params.id}?qty=${qty}`)
+    }
     return (
             loading ? <Loading /> : 
             (
@@ -59,7 +64,7 @@ const [qty, setQty] = useState(1)
                                     </ListGroupItem>
                                 )
                             }
-                            <ListGroupItem><Button disabled={countInStock === 0} variant="dark" block>Buy Now</Button></ListGroupItem>
+                            <ListGroupItem><Button onClick={addToCartHandler} disabled={countInStock === 0} variant="dark" block>Add To Cart</Button></ListGroupItem>
                     </Card>
                 </Col>
             </Row>

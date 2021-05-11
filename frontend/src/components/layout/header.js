@@ -17,7 +17,7 @@ const Header = () => {
                     <LinkContainer to="/">
                         <Nav.Link><FontAwesomeIcon icon={faUser} className="mr-2"/>Profile</Nav.Link>
                     </LinkContainer>
-                    <LinkContainer to="/">
+                    <LinkContainer to="/cart">
                         <Nav.Link><FontAwesomeIcon icon={faShoppingCart} className="mr-2"/>Cart</Nav.Link>
                     </LinkContainer>
                     </Nav> 

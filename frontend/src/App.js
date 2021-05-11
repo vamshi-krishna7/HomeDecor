@@ -5,6 +5,7 @@ import Header from './components/layout/header';
 import Footer from './components/layout/footer';
 // import About from './components/pages/about';
 import Home from './components/pages/home';
+import Cart from './components/pages/cart';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ProductInfo from './components/pages/productInfo';
 
@@ -17,6 +18,7 @@ const App = () => {
           <Switch>
               <Route path='/' component={Home} exact/>
               <Route path='/product/:id' component={ProductInfo} exact/>
+              <Route path='/cart/:id?' component={Cart} />
             </Switch>
           </Container>
         </main>

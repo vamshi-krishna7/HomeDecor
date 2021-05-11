@@ -2,3 +2,6 @@ export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS';
 export const SET_LOADING = 'SET_LOADING';
 
 export const GET_PRODUCT_INFO = 'GET_PRODUCT_INFO';
+
+
+export const CART_ADD_ITEM = 'CART_ADD_ITEM';
