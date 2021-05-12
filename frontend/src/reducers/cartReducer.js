@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM } from '../types.js'
+import { CART_ADD_ITEM, CART_REMOVE_ITEM } from '../types.js'
 
 const initialState = {
     cartItems: []
@@ -22,6 +22,12 @@ export default (state=initialState, action) => {
                cartItems: [...state.cartItems, item]
            }
         }
+        case CART_REMOVE_ITEM:
+            const Items = state.cartItems.filter((item) => item._id !== action.payload)
+            return {
+                ...state,
+                cartItems: [...Items]
+            }
         default :
             return {
                 ...state    
