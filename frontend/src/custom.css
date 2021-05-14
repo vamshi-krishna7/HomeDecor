@@ -1,0 +1,29 @@
+h1{
+    font-size: 1.8rem;
+    padding: 1rem 0;
+}
+
+h2{
+    font-size: 1.2rem;
+    padding: 0.2rem 0;
+}
+h3{
+    font-size: 1rem;
+    padding: 0.2rem 0;
+}
+h4{
+    font-size: 1rem;
+    padding: 0.2rem 0;
+}
+
+h6{
+    font-size: 0.8rem; 
+}
+
+.list-group-cart-item {
+    padding: 0.3rem; 
+}
+
+.form-control-cart-item {
+    padding: .375rem 0rem
+}
