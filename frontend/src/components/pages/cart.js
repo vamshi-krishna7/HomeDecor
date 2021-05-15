@@ -40,7 +40,7 @@ const Cart = (props) => {
                                             <h2 className="text-center">
                                                 Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items
                                             </h2>
-                                            <h4 className="text-center">$ {cartItems.reduce((acc, item) => acc + ((item.price) * (item.qty)), 0)}</h4>
+                                            <h4 className="text-center">$ {cartItems.reduce((acc, item) => acc + ((item.price) * (item.qty)), 0).toFixed(2)}</h4>
                                         </ListGroupItem>
                                     </ListGroup>
                                 </Card>
