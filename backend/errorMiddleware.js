@@ -6,6 +6,7 @@ const errorMiddleware = () => {
         msg: err.message
     })
    })
+   next()
 }
 
 module.exports = {errorMiddleware};
