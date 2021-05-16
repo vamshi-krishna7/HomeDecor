@@ -3,10 +3,12 @@ import productReducer from './productReducer';
 import productInfoReducer from './productInfoReducer';
 import cartReducer from './cartReducer';
 import userReducer from './userReducer';
+import alertReducer from './alertReducer';
 
 export default combineReducers({
     productList: productReducer,
     productInfo: productInfoReducer,
     cart: cartReducer,
-    user: userReducer
+    user: userReducer,
+    alert: alertReducer
 })

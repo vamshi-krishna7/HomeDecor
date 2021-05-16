@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Form, Col, Row, FormGroup, FormLabel, FormControl, FormText, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import {loginUser, logoutUser} from '../../actions/user';
+import {loginUser, logoutUser} from '../../actions/userAction';
 
 const Login = () => {
     const [email, SetEmail] = useState('')
