@@ -1,12 +1,26 @@
 import React, {useState, useEffect} from 'react';
-import { Form, Col, Row, FormGroup, FormLabel, FormControl, FormText} from 'react-bootstrap';
+import { Form, Col, Row, FormGroup, FormLabel, FormControl, FormText, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
+import {loginUser, logoutUser} from '../../actions/user';
 
 const Login = () => {
     const [email, SetEmail] = useState('')
     const [password, SetPassword] = useState('')
+
+    const dispatch = useDispatch();
+    const userDetails = useSelector(state => state.user)
+
+    const onFormSubmit = (e) => {
+        e.preventDefault();
+        dispatch(loginUser(email, password))
+
+        SetEmail('')
+        SetPassword('')
+    }
+
         return (
-          <Form>
+          <Form onSubmit={onFormSubmit}>
             <Row className="justify-content-center">
               <Col xs={12} md={6}>
                 <h1 className="text-center">Sign In</h1>
@@ -32,9 +46,9 @@ const Login = () => {
                   />
                 </FormGroup>
                 <FormGroup>
-                  <buttton className="btn btn-dark btn-block py-2 my-4">
+                  <Button className="btn btn-dark btn-block py-2 my-4" type="submit" >
                     Log In
-                  </buttton>
+                  </Button>
                 </FormGroup>
                 <FormGroup>
                   <p>

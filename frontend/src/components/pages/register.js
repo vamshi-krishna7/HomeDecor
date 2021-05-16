@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import {
   Form,
   Col,
@@ -7,16 +7,32 @@ import {
   FormLabel,
   FormControl,
   FormText,
+  Button,
+  Alert
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import {useSelector, useDispatch} from 'react-redux';
+import {registerUser} from '../../actions/user';
 
 const Register = () => {
   const [name, SetName] = useState("");
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
   const [confirmPassword, SetConfirmPassword] = useState("");
+
+  const dispatch = useDispatch()
+
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    if(password !== confirmPassword) {
+      console.log("Alert passwords don't match")
+      }else {
+      dispatch(registerUser(name, email, password, confirmPassword))
+    }
+  }
+
   return (
-    <Form>
+    <Form onSubmit = {onFormSubmit}>
       <Row className="justify-content-center">
         <Col xs={12} md={6}>
           <h1 className="text-center">Sign Up</h1>
@@ -60,9 +76,9 @@ const Register = () => {
             />
           </FormGroup>
           <FormGroup>
-            <buttton type="submit" className="btn btn-dark btn-block py-2 my-4">
+            <Button type="submit" className="btn btn-dark btn-block py-2 my-4">
               Register
-            </buttton>
+            </Button>
           </FormGroup>
           <FormGroup>
             <p>
