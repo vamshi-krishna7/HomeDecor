@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 })
 app.use('/products', products)
 app.use('/user', user)
-app.use(errorMiddleware)
+// app.use(errorMiddleware)
 
 const port = process.env.PORT || 5100;
 

@@ -4,6 +4,7 @@ import ProductItem from './productItems';
 import { useDispatch, useSelector } from 'react-redux';
 import {getAllProducts, setLoading} from '../../actions/productAction';
 import Loading from '../utils/loading';
+import Banner from '../layout/homeScreenBanner';
 
 const Home = () => {
     const dispatch = useDispatch()
@@ -19,6 +20,7 @@ const Home = () => {
 
     return (
         <Fragment>
+        <Banner />
             <h1 className="text-center">Latest products</h1>
             <Row>
             {   
