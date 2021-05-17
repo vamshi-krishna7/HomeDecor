@@ -24,16 +24,6 @@ const authUser = asyncHandler(async(req, res) => {
     }
 })
 
-
-const getUserProfile = asyncHandler(async(req, res) => {
-    if (req.authorizedUser) {
-        res.status(200).json(req.authorizedUser)
-    }else {
-        res.status(401).json({msg: "Unauthorized"})
-    }
-})
-
-
 const registerUser = asyncHandler(async(req, res) => {
     let {name, email, password} = req.body;
     const userExists = await User.findOne({email})
@@ -41,8 +31,8 @@ const registerUser = asyncHandler(async(req, res) => {
     if(userExists) {
         res.status(400).json({msg: 'user already exists'})
     }else {
-        const salt = await bcrypt.genSalt(10);
-        password = await bcrypt.hash(password, salt)
+        // const salt = await bcrypt.genSalt(10);
+        // password = await bcrypt.hash(password, salt)
         const user = await User.create({
             name,
             email,
@@ -65,4 +55,44 @@ const registerUser = asyncHandler(async(req, res) => {
     }
 })
 
-module.exports = {authUser, getUserProfile, registerUser};
+
+const getUserProfile = asyncHandler(async(req, res) => {
+    if (req.authorizedUser) {
+        console.log()
+        res.status(200).json(req.authorizedUser)
+    }else {
+        res.status(401).json({msg: "Unauthorized"})
+    }
+})
+
+const updateUserProfile = asyncHandler(async(req, res) => {
+    
+       const user = await User.findById(req.authorizedUser._id)
+       const {name, email, password} = user;
+       console.log(name, email, password)
+        if(user) {
+            user.name = req.body.name || name;
+            user.email = req.body.email || email;
+            if(req.body.password) {
+            user.password = req.body.password || password;
+            }
+
+        await user.save()
+
+        const generateToken = jwt.sign({id: user._id}, process.env.JWT_SECRET, {
+            expiresIn: "30d"})
+
+        res.status(200).json({
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          isAdmin: user.isAdmin,
+          token: generateToken,
+        });
+        console.log(user.name)
+        }else {
+        res.status(401).json({msg: "Unauthorized"})
+    }
+})
+
+module.exports = {authUser, getUserProfile, registerUser, updateUserProfile};

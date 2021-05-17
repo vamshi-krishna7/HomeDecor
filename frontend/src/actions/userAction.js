@@ -1,4 +1,4 @@
-import {USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS} from '../types';
+import {USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_LOGOUT_SUCCESS, GET_USER_PROFILE_REQUEST, GET_USER_PROFILE_SUCESS} from '../types';
 import axios from 'axios';
 
 export const loginUser = (email, password) => async(dispatch) => {
@@ -28,7 +28,7 @@ export const loginUser = (email, password) => async(dispatch) => {
 
 export const logoutUser = () => async(dispatch) => {
     dispatch({
-        type: USER_LOGIN_SUCCESS
+        type: USER_LOGOUT_SUCCESS
     });
 
     localStorage.removeItem('userInfo')
@@ -58,3 +58,29 @@ export const registerUser = (name, email, password) => async(dispatch) => {
 
     localStorage.setItem("userInfo", JSON.stringify(data));
 }
+
+export const getUserProfile = () => async(dispatch, getState) => {
+    dispatch({
+        type: GET_USER_PROFILE_REQUEST
+    })
+
+    const token = getState().user.userInfo.token;
+    const config = {
+        headers: {
+            'Content-Type':'application/json',
+            authorization: `bearer ${token}` 
+        }
+    }
+    const {data} = await axios.get('/user/profile', config)
+    console.log(data)
+
+    dispatch({
+        type: GET_USER_PROFILE_SUCESS,
+        payload: data
+    })
+}
+
+
+
+// 
+

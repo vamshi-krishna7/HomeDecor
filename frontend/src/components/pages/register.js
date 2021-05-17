@@ -8,19 +8,20 @@ import {
   FormControl,
   FormText,
   Button,
-  Alert,
-  Toast
+  Alert
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux';
 import {registerUser} from '../../actions/userAction';
 import {alert} from '../../actions/alertAction';
 
-const Register = () => {
+const Register = (props) => {
   const [name, SetName] = useState("");
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
   const [confirmPassword, SetConfirmPassword] = useState("");
+
+  const redirect = props.location.search ? props.location.search.split('=')[1] : '/'
 
   const dispatch = useDispatch()
   const alerts = useSelector(state => state.alert)
@@ -32,7 +33,8 @@ const Register = () => {
     } else if (password !== confirmPassword) {
       dispatch(alert("Passwords Don't Match", "danger"));
     } else {
-      dispatch(registerUser(name, email, password, confirmPassword));
+      dispatch(registerUser(name, email, password));
+      props.history.push(redirect)
       SetName('');
       SetEmail('');
       SetPassword('')
