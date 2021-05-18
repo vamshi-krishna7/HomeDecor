@@ -69,14 +69,13 @@ const updateUserProfile = asyncHandler(async(req, res) => {
     
        const user = await User.findById(req.authorizedUser._id)
        const {name, email, password} = user;
-       console.log(name, email, password)
         if(user) {
             user.name = req.body.name || name;
             user.email = req.body.email || email;
             if(req.body.password) {
+                console.log('camer her backend')
             user.password = req.body.password || password;
             }
-
         await user.save()
 
         const generateToken = jwt.sign({id: user._id}, process.env.JWT_SECRET, {
@@ -89,7 +88,6 @@ const updateUserProfile = asyncHandler(async(req, res) => {
           isAdmin: user.isAdmin,
           token: generateToken,
         });
-        console.log(user.name)
         }else {
         res.status(401).json({msg: "Unauthorized"})
     }

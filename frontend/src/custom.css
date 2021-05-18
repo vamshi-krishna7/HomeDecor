@@ -27,4 +27,10 @@ h6{
 .form-control-cart-item {
     padding: .375rem 0rem
 }
+@media (max-width: 480px) {
+    Strong {
+        font-size: 0.9rem;
+    }
+}
+
 

@@ -22,7 +22,7 @@ const Home = () => {
             <Row>
             {   
                 loading ? <Loading /> : products.map((singleProduct) => (
-                <Col xs={6} md={4} lg={4} xl={3} key={singleProduct._id}>
+                <Col xs={6} md={4} lg={4} xl={3} key={singleProduct._id} className="custom-padding">
                     <ProductItem singleProduct={singleProduct} />
                 </Col>
             ))} 

@@ -1,9 +1,10 @@
-import { GET_USER_PROFILE_REQUEST, GET_USER_PROFILE_SUCESS} from '../types';
+import { GET_USER_PROFILE_REQUEST, GET_USER_PROFILE_SUCESS, UPDATE_USER_PROFILE_REQUEST, UPDATE_USER_PROFILE_SUCCESS} from '../types';
 
 
 export default (state = {}, action) => {
     switch (action.type) {
             case GET_USER_PROFILE_REQUEST:
+            case UPDATE_USER_PROFILE_REQUEST:
               return {
                 ...state,
                 loading: true
@@ -12,7 +13,13 @@ export default (state = {}, action) => {
             return {
               ...state,
               loading: false,
-              userProfile: action.payload,
+              userProfile: action.payload
+            }
+            case UPDATE_USER_PROFILE_SUCCESS: 
+            return {
+              ...state,
+              loading: false,
+              userProfile: action.payload
             }
         default :
         return {

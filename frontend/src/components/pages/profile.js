@@ -11,7 +11,7 @@ import {
   Alert
 } from "react-bootstrap";
 import {useSelector, useDispatch} from 'react-redux';
-import {getUserProfile} from '../../actions/userProfileAction';
+import {getUserProfile, updateUserProfile} from '../../actions/userProfileAction';
 import {alert} from '../../actions/alertAction';
 import Loading from '../utils/loading';
 
@@ -45,12 +45,12 @@ const Profile = (props) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    if (name === "" || email === "" ||password === "" || confirmPassword === "") {
+    if (name === "" || email === "") {
       dispatch(alert("Please enter all input fields", "danger"));
     } else if (password !== confirmPassword) {
       dispatch(alert("Passwords Don't Match", "danger"));
     } else {
-    //   dispatch(registerUser(name, email, password));
+      dispatch(updateUserProfile(name, email, password));
       props.history.push(redirect)
     }
   }

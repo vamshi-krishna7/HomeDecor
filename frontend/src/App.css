@@ -42,3 +42,19 @@ nav {
     cursor: pointer;
     font-size: 1.1rem;
 }
+
+.custom-margin {
+    margin: 0.3rem !important;
+
+}
+
+@media (max-width: 480px) {
+    .custom-padding {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .custom-margin {
+        margin: 0rem !important;
+    
+    }
+}

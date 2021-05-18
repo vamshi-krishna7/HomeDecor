@@ -16,11 +16,13 @@ const Header = () => {
     }
     return (
       <header>
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark" expand='md' collapseOnSelect > 
           <Container>
-            <LinkContainer to="/">
-              <Navbar.Brand>Home Decor</Navbar.Brand>
-            </LinkContainer>
+          <LinkContainer to="/">
+            <Navbar.Brand>Home Decor</Navbar.Brand>
+          </LinkContainer>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
               <LinkContainer to="/cart">
                 <Nav.Link>
@@ -33,7 +35,6 @@ const Header = () => {
                   <Dropdown.Toggle variant="secondary"  >
                     {userInfo.name}
                   </Dropdown.Toggle>
-
                   <Dropdown.Menu>
                     <LinkContainer to="/profile">
                         <Dropdown.Item>Profile</Dropdown.Item>
@@ -55,6 +56,7 @@ const Header = () => {
                 </LinkContainer>
               )}
             </Nav>
+            </Navbar.Collapse>
           </Container>
         </Navbar>
       </header>
