@@ -11,12 +11,12 @@ import {
   Alert
 } from "react-bootstrap";
 import {useSelector, useDispatch} from 'react-redux';
-import {getUserProfile} from '../../actions/userAction';
+import {getUserProfile} from '../../actions/userProfileAction';
 import {alert} from '../../actions/alertAction';
 import Loading from '../utils/loading';
 
 const Profile = (props) => {
-    const userdetails = useSelector(state => state.user)
+    const userdetails = useSelector(state => state.userProfile)
     const {userProfile, loading} = userdetails;
     console.log(userdetails)
 
@@ -102,7 +102,7 @@ const Profile = (props) => {
                         </FormText>
                         </FormGroup>
                         <FormGroup>
-                        <FormLabel>Password</FormLabel>
+                        <FormLabel>New Password</FormLabel>
                         <FormControl
                             type="password"
                             placeholder="Enter password"
@@ -111,7 +111,7 @@ const Profile = (props) => {
                         />
                         </FormGroup>
                         <FormGroup>
-                        <FormLabel>Confirm-Password</FormLabel>
+                        <FormLabel>Confirm New Password</FormLabel>
                         <FormControl
                             type="password"
                             placeholder="Enter password"

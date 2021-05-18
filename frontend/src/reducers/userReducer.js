@@ -1,4 +1,4 @@
-import {USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_LOGOUT_SUCCESS, GET_USER_PROFILE_REQUEST, GET_USER_PROFILE_SUCESS} from '../types';
+import {USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_LOGOUT_SUCCESS} from '../types';
 
 
 export default (state = {}, action) => {
@@ -28,17 +28,6 @@ export default (state = {}, action) => {
                 ...state,
                 userInfo: action.payload,
                 loading: false
-            }
-            case GET_USER_PROFILE_REQUEST:
-              return {
-                ...state,
-                loading: true
-              }
-            case GET_USER_PROFILE_SUCESS: 
-            return {
-              ...state,
-              loading: false,
-              userProfile: action.payload,
             }
         default :
         return {
