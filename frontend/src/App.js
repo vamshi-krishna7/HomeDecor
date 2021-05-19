@@ -18,7 +18,6 @@ const App = () => {
     <Router>
         <Header />
         <main>
-        <Container>
             <Switch>
               <Route path='/' component={Home} exact/>
               <Route path='/login' component={Login} />
@@ -28,7 +27,6 @@ const App = () => {
               <Route path='/product/:id' component={ProductInfo} />
               <Route path='/cart/:id?' component={Cart} />
             </Switch> 
-            </Container>
         </main>
         <Footer />
     </Router>

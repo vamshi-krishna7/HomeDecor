@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
-import {Col, Row, ListGroup, ListGroupItem, Image, Card, Button, FormControl} from 'react-bootstrap';
+import {Container, Col, Row, ListGroup, ListGroupItem, Image, Card, Button, FormControl} from 'react-bootstrap';
 import '../../App.css';
 import {useSelector, useDispatch} from 'react-redux';
 import {getProductInfo, setLoading} from '../../actions/productAction';
@@ -28,6 +28,7 @@ const [qty, setQty] = useState(1)
             loading ? <Loading /> : 
             (
                 <Fragment>
+                <Container>
                 <Link to="/" className="btn btn-outline-dark my-3" ><span className="btn-go-back">&larr; Back</span></Link>
                 <Row>
                 <Col md={6} className="my-auto"> 
@@ -68,6 +69,7 @@ const [qty, setQty] = useState(1)
                     </Card>
                 </Col>
             </Row>
+            </Container>
             </Fragment>
             )
     )

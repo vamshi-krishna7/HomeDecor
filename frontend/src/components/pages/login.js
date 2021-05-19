@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Form, Col, Row, FormGroup, FormLabel, FormControl, FormText, Button, Alert} from 'react-bootstrap';
+import { Container, Form, Col, Row, FormGroup, FormLabel, FormControl, FormText, Button, Alert } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {loginUser, logoutUser} from '../../actions/userAction';
@@ -41,6 +41,7 @@ const Login = (props) => {
     }
 
         return (
+        <Container>
           <Form onSubmit={onFormSubmit}>
           {alertMessage &&
             alertMessage.map((msg) => (
@@ -95,6 +96,7 @@ const Login = (props) => {
               </Col>
             </Row>
           </Form>
+        </Container>
         );
 }
 export default Login;

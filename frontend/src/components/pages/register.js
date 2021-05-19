@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import {
+  Container,
   Form,
   Col,
   Row,
@@ -54,6 +55,7 @@ const Register = (props) => {
 
   return (
     <Fragment>
+    <Container>
       {alertMessage &&
         alertMessage.map((msg) => (
           <Alert
@@ -129,6 +131,7 @@ const Register = (props) => {
           </Col>
         </Row>
       </Form>
+      </Container>
     </Fragment>
   );
 };

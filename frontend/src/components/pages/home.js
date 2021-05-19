@@ -20,9 +20,9 @@ const Home = () => {
     return (
         <Fragment>
             <Banner />
-                <Container>
+                <Container >
                     <h1 className="text-center">Latest products</h1>
-                    <Row >
+                    <Row style={{position: 'relative'}}>
                     {   
                         loading ? <Loading /> : products.map((singleProduct) => (
                         <Col xs={6} md={4} lg={4} xl={3} key={singleProduct._id} className="custom-padding">

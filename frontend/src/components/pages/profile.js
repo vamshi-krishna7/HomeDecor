@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import {
+  Container,
   Form,
   Col,
   Row,
@@ -59,6 +60,7 @@ const Profile = (props) => {
 
   return (
     <Fragment>
+    <Container>
     {
         loading ? <Loading /> : (
             <Fragment>
@@ -132,9 +134,11 @@ const Profile = (props) => {
                     </Col>
                     </Row>
                 </Form>
+                
               </Fragment>
         )
     }
+    </Container>
     </Fragment>
   );
 };

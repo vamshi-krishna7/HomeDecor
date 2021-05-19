@@ -1,7 +1,7 @@
 import React, {Fragment, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {Row, Col, ListGroup, ListGroupItem, Image, Form, Button, FormControl, Card } from 'react-bootstrap';
+import {Container, Row, Col, ListGroup, ListGroupItem, Image, Form, Button, FormControl, Card } from 'react-bootstrap';
 import {addToCart, removeFromCart} from '../../actions/cartAction';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
@@ -29,6 +29,7 @@ const Cart = (props) => {
 
     return (
       <ListGroup>
+      <Container>
         <Row>
           <Col xs={12}>
             <h1 className="text-center">Shopping Cart</h1>
@@ -117,6 +118,7 @@ const Cart = (props) => {
             )}
           </Col>
         </Row>
+        </Container>
       </ListGroup>
     );
 }
