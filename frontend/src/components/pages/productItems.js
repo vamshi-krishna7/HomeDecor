@@ -8,7 +8,7 @@ const ProductItem = (props) => {
     return (
       <Card className='p-2 custom-margin h-100'>
       <Link to={`/product/${_id}`}>
-        <Card.Img src={image} variant='top' className="rounded-0"/>
+        <Card.Img src={image} variant='top' className="rounded-0 "/>
       </Link>
 
       <Card.Body>
@@ -27,7 +27,7 @@ const ProductItem = (props) => {
 
       <Card.Body>
         
-      <Link to={`/product/${_id}`} className="text-center text-dark"><Button type="button" block>Buy Now</Button></Link>
+      <Link to={`/product/${_id}`} className="text-center" style={{textDecoration: 'none'}}><Button type="button" block>Buy Now</Button></Link>
         
       </Card.Body>
     </Card> 

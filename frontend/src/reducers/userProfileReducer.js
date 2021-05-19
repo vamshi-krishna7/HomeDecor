@@ -13,13 +13,14 @@ export default (state = {}, action) => {
             return {
               ...state,
               loading: false,
-              userProfile: action.payload
+              userProfileInfo: action.payload
             }
             case UPDATE_USER_PROFILE_SUCCESS: 
             return {
               ...state,
               loading: false,
-              userProfile: action.payload
+              success: true,
+              userProfileInfo: action.payload
             }
         default :
         return {

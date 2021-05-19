@@ -17,15 +17,12 @@ import Loading from '../utils/loading';
 
 const Profile = (props) => {
     const userdetails = useSelector(state => state.userProfile)
-    const {userProfile, loading} = userdetails;
-    console.log(userdetails)
+    const {userProfileInfo, loading, success} = userdetails;
 
   const [name, SetName] = useState("");
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
   const [confirmPassword, SetConfirmPassword] = useState("");
-
-  const redirect = props.location.search ? props.location.search.split('=')[1] : '/'
 
   const dispatch = useDispatch()
 
@@ -35,23 +32,28 @@ const Profile = (props) => {
   
 
   useEffect(() => {
-        if(!userProfile){
-            dispatch(getUserProfile())
-        }else {
-            SetName(userProfile.name)
-            SetEmail(userProfile.email)
+    if(!userdetails){
+            props.history.push('/login')
         }
-  }, [dispatch, userProfile])   
+        else {
+            if(!userProfileInfo){
+                dispatch(getUserProfile())
+            }else {
+                SetName(userProfileInfo.name)
+                SetEmail(userProfileInfo.email)
+            }
+        }
+  }, [dispatch, userProfileInfo])   
 
   const onFormSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (name === "" || email === "") {
       dispatch(alert("Please enter all input fields", "danger"));
     } else if (password !== confirmPassword) {
       dispatch(alert("Passwords Don't Match", "danger"));
     } else {
       dispatch(updateUserProfile(name, email, password));
-      props.history.push(redirect)
+      dispatch(alert("Profile Updated Successfully", "success"))
     }
   }
 

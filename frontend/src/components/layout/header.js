@@ -6,10 +6,12 @@ import { faUser, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector} from 'react-redux';
 import {logoutUser} from '../../actions/userAction';
 
+
 const Header = () => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.user)
     const {userInfo} = user;
+    console.log(userInfo)
 
     const logoutHandler = () => {
         dispatch(logoutUser())

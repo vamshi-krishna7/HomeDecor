@@ -10,29 +10,34 @@ const Login = (props) => {
     const [password, SetPassword] = useState('')
 
     const dispatch = useDispatch();
-    const userDetails = useSelector(state => state.user)
+    const userState = useSelector(state => state.user)
+    console.log(userState)
+    const {userInfo, error} = userState;
     const alertMsg = useSelector(state => state.alert)
-    const {userInfo} = userDetails;
     const {alertMessage} = alertMsg;
 
-    useEffect(() => {
-      if(userInfo){
-        props.history.push('/')
-      }
-    }, [userInfo])
-
     const redirect = props.location.search ? props.location.search.split('=')[1] : '/'
-    console.log(redirect)
+    
+    useEffect(() => {
+      if(userInfo){  //if logged in his user info must be present
+        props.history.push(redirect)
+        dispatch(alert('Logged In', 'success'))
+      }
+      if(error === "Invalid Credentials") {
+          dispatch(alert('Invalid Credentials', 'danger'))
+        }
+    }, [userInfo, error])
+
+    
     const onFormSubmit = (e) => {
       e.preventDefault();
       if(email === '' || password === ''){
         dispatch(alert('Please enter all the fields', 'danger'))
       }else {
         dispatch(loginUser(email, password))
-        props.history.push(redirect)
-        SetEmail('')
-        SetPassword('')
-      } // to be fixed: invalid credentials
+          SetEmail('')
+          SetPassword('')
+      } 
     }
 
         return (
