@@ -1,4 +1,4 @@
-import {USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_REGISTER_REQUEST,USER_LOGIN_ERROR, USER_REGISTER_SUCCESS, USER_LOGOUT_SUCCESS} from '../types';
+import {USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_REGISTER_REQUEST,USER_LOGIN_ERROR, USER_REGISTER_SUCCESS, USER_LOGOUT_SUCCESS, USER_REGISTER_ERROR} from '../types';
 
 // const initialState= {
 //   error: null
@@ -75,6 +75,7 @@ export default (state, action) => {
         error: null
       }
       case USER_LOGIN_ERROR:
+      case USER_REGISTER_ERROR:
         return {
           ...state,
           loading: false,

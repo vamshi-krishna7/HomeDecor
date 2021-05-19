@@ -1,4 +1,4 @@
-import {USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS,USER_LOGIN_ERROR, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_LOGOUT_SUCCESS} from '../types';
+import {USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS,USER_LOGIN_ERROR, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_LOGOUT_SUCCESS, USER_REGISTER_ERROR} from '../types';
 import axios from 'axios';
 
 export const loginUser = (email, password) => async(dispatch) => {
@@ -43,28 +43,37 @@ export const logoutUser = () => async(dispatch) => {
 } 
 
 export const registerUser = (name, email, password) => async(dispatch) => {
-    console.log(name, email, password)
-    dispatch({
-        type: USER_REGISTER_REQUEST
-    })
+    
+    try{
+            console.log(name, email, password)
+        dispatch({
+            type: USER_REGISTER_REQUEST
+        })
 
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
         }
+        const {data} = await axios.post('/user/', {name, email, password}, config)
+
+        dispatch({
+            type: USER_REGISTER_SUCCESS,
+            payload: data
+        })
+
+        dispatch({
+            type: USER_LOGIN_SUCCESS,
+            payload: data,
+        });
+
+        localStorage.setItem("userInfo", JSON.stringify(data));
+    }catch(error){
+        dispatch({
+            type: USER_REGISTER_ERROR,
+            payload: error.response.data.msg
+        })
     }
-    const {data} = await axios.post('/user/', {name, email, password}, config)
-
-    dispatch({
-        type: USER_REGISTER_SUCCESS,
-        payload: data
-    })
-    dispatch({
-        type: USER_LOGIN_SUCCESS,
-        payload: data,
-    });
-
-    localStorage.setItem("userInfo", JSON.stringify(data));
 }
 
 

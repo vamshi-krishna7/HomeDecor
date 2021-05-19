@@ -24,8 +24,18 @@ const Register = (props) => {
   const redirect = props.location.search ? props.location.search.split('=')[1] : '/'
 
   const dispatch = useDispatch()
+  const user = useSelector(state => state.user)
+  const {error} = user;
   const alerts = useSelector(state => state.alert)
   const {alertMessage} = alerts;
+  console.log(error)
+
+  useEffect(() => {
+    if(error === "user already exists"){
+      dispatch(alert("You Are Registered User", "info"));
+    }
+  }, [error])
+
   const onFormSubmit = (e) => {
     e.preventDefault();
     if (name === "" || email === "" ||password === "" || confirmPassword === "") {
