@@ -21,7 +21,7 @@ const Home = () => {
         <Fragment>
             <Banner />
                 <Container >
-                    <h1 className="text-center">Latest products</h1>
+                    <h1 className="text-center">Our Latest products</h1>
                     <Row style={{position: 'relative'}}>
                     {   
                         loading ? <Loading /> : products.map((singleProduct) => (

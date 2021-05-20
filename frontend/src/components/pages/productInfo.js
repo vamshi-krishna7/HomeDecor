@@ -41,7 +41,7 @@ const [qty, setQty] = useState(1)
                         <ListGroupItem >{description}</ListGroupItem>
                     </ListGroup>
                     <Card className="text-center">
-                            <ListGroupItem>$ {price}</ListGroupItem>
+                            <ListGroupItem>Rs {price}</ListGroupItem>
                             <ListGroupItem className="mb-2 text-muted">Status: {countInStock > 0 ? 'In stock' : 'Out of stock'}</ListGroupItem>
                             {
                                 countInStock > 0 && (

@@ -1,14 +1,14 @@
-import React from 'react';
+// import React from 'react';
 
 
 
-const Banner = () => {
-return (
-    <section>
-        <img src={"./AAA/Final/banner-image.jpg"} className="img-fluid" alt="banner image" />
-    </section>
+// const Banner = () => {
+// return (
+//     <section>
+//         <img src={"./AAA/Final/banner-image.jpg"} className="img-fluid" alt="banner image" />
+//     </section>
 
-)
-}
+// )
+// }
 
-export default Banner;
+// export default Banner;

@@ -39,7 +39,7 @@ const Register = (props) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    if (name === "" || email === "" ||password === "" || confirmPassword === "") {
+    if (name === "" || email === "" || password === "" || confirmPassword === "") {
       dispatch(alert("Please enter all input fields", "danger"));
     } else if (password !== confirmPassword) {
       dispatch(alert("Passwords Don't Match", "danger"));

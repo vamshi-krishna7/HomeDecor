@@ -48,7 +48,7 @@ const Cart = (props) => {
                         items
                       </h2>
                       <h4 className="text-center">
-                        ${" "}
+                        Rs{" "}
                         {cartItems
                           .reduce((acc, item) => acc + item.price * item.qty, 0)
                           .toFixed(2)}
@@ -78,7 +78,7 @@ const Cart = (props) => {
                           className="my-auto my-auto list-group-cart-item"
                         >
                           <h6>{item.name}</h6>
-                          <h6>$ {item.price}</h6>
+                          <h6>Rs {item.price}</h6>
                         </Col>
                         <Col xs={3} sm={2} md={3} className="my-auto">
                           <FormControl

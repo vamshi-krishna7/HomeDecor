@@ -35,6 +35,10 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    type: {
+        type: String,
+        default: 'HomeDecor Basic'
+    },
     category: {
         type: String,
         required: true

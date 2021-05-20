@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Button} from 'react-bootstrap';
 
 const Banner = () => {
 return (
@@ -7,13 +7,14 @@ return (
         <div style={{
             position: "absolute",
             left: "20%",
-            top: "80%",
+            top: "70%",
             zIndex: "1",
-            transform: "translate(-20%, -80%)",
+            transform: "translate(-20%, -70%)",
             width: "95%"
           }}>
-            <h1 className="banner-heading-1" style={{color: 'black'}}>Soulful handcrafted goods from around the <span>GLOBE.</span></h1>
-           
+            <h1 className="banner-heading-1" style={{color: 'black'}}>Soulful handcrafted goods by <span>HomeDecor.</span></h1>
+
+            <Button className="btn btn-secondary py-2 px-3 my-1 text-dark" style={{letterSpacing: '3px'}}>KNOW MORE</Button>
         </div>
     </div>
 )
@@ -21,4 +22,5 @@ return (
 
 export default Banner;
 
- // <h1 className="banner-heading-2" style={{color: 'black'}}></h1>
+ //             <h1 className="banner-heading-2"></h1>
+            

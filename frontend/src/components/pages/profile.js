@@ -17,8 +17,8 @@ import {alert} from '../../actions/alertAction';
 import Loading from '../utils/loading';
 
 const Profile = (props) => {
-    const userdetails = useSelector(state => state.userProfile)
-    const {userProfileInfo, loading, success} = userdetails;
+    const userProfile = useSelector(state => state.userProfile)
+    const {userProfileInfo, loading, success} = userProfile;
 
   const [name, SetName] = useState("");
   const [email, SetEmail] = useState("");
@@ -33,7 +33,7 @@ const Profile = (props) => {
   
 
   useEffect(() => {
-    if(!userdetails){
+    if(!userProfile){
             props.history.push('/login')
         }
         else {

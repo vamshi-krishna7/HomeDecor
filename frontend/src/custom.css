@@ -1,37 +1,53 @@
 .banner-heading-1 {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     font-weight: bolder;
 }
-.banner-heading-1  > span {
-    color: rgb(83, 78, 78);
+.banner-heading-1 > span {
+    font-size: 4.5rem;
+    color: rgb(61, 59, 59);
+    font-weight: bolder;
 }
 
 .ul-custom-margin {
     padding-left: 0rem;
 }
+
+
 @media (max-width: 992px) {
     .banner-heading-1 {
-        font-size: 2.5rem;
+        font-size: 3.7rem;
     }
-
+    .banner-heading-1 > span {
+        font-size: 3.7rem;
+    }
 }
 
 @media (max-width: 768px) { 
     .banner-heading-1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+    }
+    .banner-heading-1 > span {
+        font-size: 2.5rem;
     }
 }
 
 @media (max-width: 576px) { 
     .banner-heading-1 {
-        font-size: 1.5rem;
+        font-size: 2.1rem;
+    }
+    .banner-heading-1 > span {
+        font-size: 2.1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .banner-heading-1 {
-        font-size: 1.5rem;
+    h1.banner-heading-1 {
+        font-size: 1.75rem;
+        padding: 0;
     }
+    .banner-heading-1 > span{
+        font-size: 2.4rem;
+    } 
     Strong {
         font-size: 0.9rem;
     }
@@ -46,16 +62,19 @@
         padding: 0.2rem 0;
     }
     h3{
-        font-size: 1rem;
+        
+        font-size: 1.1rem;
         padding: 0.2rem 0;
     }
     h4{
         font-size: 1rem;
         padding: 0.2rem 0;
     }
-    
+    h5{
+        font-size: 1.2rem; 
+    }
     h6{
-        font-size: 0.8rem; 
+        font-size: 1.2rem; 
     }
     
     .list-group-cart-item {
