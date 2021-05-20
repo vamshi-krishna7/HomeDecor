@@ -26,16 +26,18 @@ const Register = (props) => {
 
   const dispatch = useDispatch()
   const user = useSelector(state => state.user)
-  const {error} = user;
+  const {userInfo, error} = user;
   const alerts = useSelector(state => state.alert)
   const {alertMessage} = alerts;
-  console.log(error)
 
   useEffect(() => {
     if(error === "user already exists"){
       dispatch(alert("You Are Registered User", "info"));
     }
-  }, [error])
+    if(userInfo){
+      props.history.push(redirect)
+    }
+  }, [error, userInfo])
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -45,7 +47,7 @@ const Register = (props) => {
       dispatch(alert("Passwords Don't Match", "danger"));
     } else {
       dispatch(registerUser(name, email, password));
-      props.history.push(redirect)
+      // props.history.push(redirect)
       SetName('');
       SetEmail('');
       SetPassword('')

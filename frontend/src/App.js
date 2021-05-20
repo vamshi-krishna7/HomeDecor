@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 
 import Header from './components/layout/header';
 import Footer from './components/layout/footer';
-// import About from './components/pages/about';
+import About from './components/pages/about';
 import Home from './components/pages/home';
 import Cart from './components/pages/cart';
 import Login from './components/pages/login';
@@ -20,6 +20,7 @@ const App = () => {
         <main>
             <Switch>
               <Route path='/' component={Home} exact/>
+              <Route path='/about' component={About} exact/>
               <Route path='/login' component={Login} />
               <Route path='/register' component={Register} />
               <Route path='/profile' component={Profile} />
