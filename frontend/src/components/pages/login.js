@@ -81,6 +81,7 @@ const Login = (props) => {
                     placeholder="Enter password"
                     value={password}
                     onChange={(e) => SetPassword(e.target.value)}
+                    min="6"
                   />
                 </FormGroup>
                 <FormGroup>

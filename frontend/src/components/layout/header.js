@@ -34,7 +34,7 @@ const Header = () => {
                 </LinkContainer>
                 <LinkContainer to="/about">
                   <Nav.Link>
-                    About
+                    About Us
                   </Nav.Link>
                 </LinkContainer>
                 {userInfo ? (

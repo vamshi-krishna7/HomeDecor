@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const Banner = () => {
 return (
@@ -13,8 +14,9 @@ return (
             width: "95%"
           }}>
             <h1 className="banner-heading-1" style={{color: 'black'}}>Soulful handcrafted goods by <span>HomeDecor.</span></h1>
-
-            <Button className="btn btn-secondary py-2 px-3 my-1 text-dark" style={{letterSpacing: '3px'}}>KNOW MORE</Button>
+            <LinkContainer to="/about">
+                <Button className="btn btn-secondary py-2 px-3 my-1 text-dark" style={{letterSpacing: '3px'}}>KNOW MORE</Button>
+            </LinkContainer>
         </div>
     </div>
 )

@@ -45,6 +45,8 @@ const Register = (props) => {
       dispatch(alert("Please enter all input fields", "danger"));
     } else if (password !== confirmPassword) {
       dispatch(alert("Passwords Don't Match", "danger"));
+    } else if (password.length<6) {
+      dispatch(alert("Password must be atleast 6 characters in length", "danger"));
     } else {
       dispatch(registerUser(name, email, password));
       // props.history.push(redirect)
