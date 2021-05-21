@@ -58,7 +58,6 @@ const registerUser = asyncHandler(async(req, res) => {
 
 const getUserProfile = asyncHandler(async(req, res) => {
     if (req.authorizedUser) {
-        console.log()
         res.status(200).json(req.authorizedUser)
     }else {
         res.status(401).json({msg: "Unauthorized"})
@@ -73,7 +72,6 @@ const updateUserProfile = asyncHandler(async(req, res) => {
             user.name = req.body.name || name;
             user.email = req.body.email || email;
             if(req.body.password) {
-                console.log('camer her backend')
             user.password = req.body.password || password;
             }
         await user.save()

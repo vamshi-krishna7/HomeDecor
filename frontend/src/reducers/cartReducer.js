@@ -2,7 +2,7 @@ import { CART_ADD_ITEM, CART_REMOVE_ITEM, SAVE_SHIPPING_ADDRESS } from '../types
 
 const initialState = {
     cartItems: [],
-    saveAddress: {}
+    shippingAddress: {}
 }
 
 
@@ -32,7 +32,7 @@ export default (state=initialState, action) => {
         case SAVE_SHIPPING_ADDRESS: 
                     return {
                       ...state,
-                      saveAddress: action.payload,
+                      shippingAddress: action.payload,
                     }
         default :
             return {

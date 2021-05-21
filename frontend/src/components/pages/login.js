@@ -11,7 +11,6 @@ const Login = (props) => {
 
     const dispatch = useDispatch();
     const userState = useSelector(state => state.user)
-    console.log(userState)
     const {userInfo, error} = userState;
     const alertMsg = useSelector(state => state.alert)
     const {alertMessage} = alertMsg;
