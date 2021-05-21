@@ -1,7 +1,8 @@
-import { CART_ADD_ITEM, CART_REMOVE_ITEM } from '../types.js'
+import { CART_ADD_ITEM, CART_REMOVE_ITEM, SAVE_SHIPPING_ADDRESS } from '../types.js'
 
 const initialState = {
-    cartItems: []
+    cartItems: [],
+    saveAddress: {}
 }
 
 
@@ -28,9 +29,15 @@ export default (state=initialState, action) => {
                 ...state,
                 cartItems: [...Items]
             }
+        case SAVE_SHIPPING_ADDRESS: 
+                    return {
+                      ...state,
+                      saveAddress: action.payload,
+                    }
         default :
             return {
                 ...state    
             }
     }
 }
+

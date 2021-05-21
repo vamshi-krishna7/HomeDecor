@@ -26,15 +26,15 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ml-auto">
+              <LinkContainer to="/about">
+                  <Nav.Link>
+                    About Us
+                  </Nav.Link>
+                </LinkContainer>
                 <LinkContainer to="/cart">
                   <Nav.Link>
                     <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
-                    Cart
-                  </Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/about">
-                  <Nav.Link>
-                    About Us
+                    Cart  
                   </Nav.Link>
                 </LinkContainer>
                 {userInfo ? (

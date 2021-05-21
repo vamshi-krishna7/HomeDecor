@@ -21,7 +21,7 @@ const Login = (props) => {
     useEffect(() => {
       if(userInfo){  //if logged in his user info must be present
         props.history.push(redirect)
-        dispatch(alert('Logged In', 'success'))
+        // dispatch(alert('Logged In', 'success'))
       }
       if(error === "Invalid Credentials") {
           dispatch(alert('Invalid Credentials', 'danger'))
@@ -85,7 +85,7 @@ const Login = (props) => {
                   />
                 </FormGroup>
                 <FormGroup>
-                  <Button className="btn btn-dark btn-block py-2 my-4" type="submit" >
+                  <Button className="btn btn-dark py-2 my-4" type="submit" block>
                     Log In
                   </Button>
                 </FormGroup>

@@ -1,6 +1,4 @@
 import './App.css';
-import { Container } from 'react-bootstrap';
-
 import Header from './components/layout/header';
 import Footer from './components/layout/footer';
 import About from './components/pages/about';
@@ -35,3 +33,5 @@ const App = () => {
 }
 
 export default App;
+
+

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CART_ADD_ITEM, CART_REMOVE_ITEM } from '../types.js';
+import { CART_ADD_ITEM, CART_REMOVE_ITEM, SAVE_SHIPPING_ADDRESS } from '../types.js';
 
 export const addToCart = (id, qty) => async(dispatch, getState) => {
     const res = await axios.get(`/products/${id}`)
@@ -21,5 +21,14 @@ export const removeFromCart = (id) => async(dispatch, getState) => {
         payload: id
     })
 
-    localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
+    localStorage.removeItem('cartItems', JSON.stringify(getState().cart.cartItems))
+}
+
+export const saveShippingAddress = (address, city, pincode) => async(dispatch, getState) => {
+    dispatch({
+        type: SAVE_SHIPPING_ADDRESS,
+        payload: {address, city, pincode}
+    })
+
+    localStorage.setItem('shippingAddress', JSON.stringify(getState().cart.shippingAddress))
 }

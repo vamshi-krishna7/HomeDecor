@@ -27,7 +27,7 @@ const ProductItem = (props) => {
         </Card.Text>
 
         <Card.Text as='h3' className="custom-dash-line text-dark" >Rs {price}</Card.Text>
-      <Link to={`/product/${_id}`} className="text-center" style={{textDecoration: 'none'}}><Button type="button" block>Buy Now</Button></Link>
+      <Link to={`/product/${_id}`} className="text-center" style={{textDecoration: 'none'}}><Button  block>Buy Now</Button></Link>
       </Card.Body>
     </Card> 
     )
