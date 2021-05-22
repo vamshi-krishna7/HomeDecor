@@ -1,6 +1,10 @@
 import React from 'react';
 import {Button, Card, Badge} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import Rating from '../utils/rating';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar, fasFaStar, faStarHalf } from '@fortawesome/free-solid-svg-icons';
+
 
 const ProductItem = (props) => {
 
@@ -18,12 +22,12 @@ const ProductItem = (props) => {
           </Card.Title>
         </Link>
 
-        <Card.Text as='h5'>
+        <Card.Text as='h5' className="text-center">
           {<Badge variant="secondary">{type}</Badge>}
         </Card.Text>
         
         <Card.Text>
-            {rating} stars rating 
+            <Rating rating={rating}/>
         </Card.Text>
 
         <Card.Text as='h3' className="custom-dash-line text-dark" >Rs {price}</Card.Text>

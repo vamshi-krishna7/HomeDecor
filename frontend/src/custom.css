@@ -12,6 +12,10 @@
     padding-left: 0rem;
 }
 
+.star-icon {
+    color: rgb(253, 130, 47);
+}
+
 
 @media (max-width: 992px) {
     .banner-heading-1 {

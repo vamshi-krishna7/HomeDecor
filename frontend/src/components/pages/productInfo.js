@@ -5,6 +5,7 @@ import '../../App.css';
 import {useSelector, useDispatch} from 'react-redux';
 import {getProductInfo, setLoading} from '../../actions/productAction';
 import Loading from '../utils/loading';
+import Rating from '../utils/rating';
 
 const ProductInfo = (props) => {
 const [qty, setQty] = useState(1)
@@ -37,7 +38,7 @@ const [qty, setQty] = useState(1)
                 <Col md={6}> 
                     <ListGroup variant="flush" className="text-center" >
                         <ListGroupItem><h3 >{name}</h3></ListGroupItem>
-                        <ListGroupItem >{rating} rating</ListGroupItem>
+                        <ListGroupItem ><Rating rating={rating} /></ListGroupItem>
                         <ListGroupItem >{description}</ListGroupItem>
                     </ListGroup>
                     <Card className="text-center">
