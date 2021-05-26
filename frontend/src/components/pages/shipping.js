@@ -19,7 +19,7 @@ const Shipping  = ({history}) => {
         e.preventDefault();
         dispatch(saveShippingAddress(address, city, pincode, payment))
         dispatch(savePaymentMethod(payment))
-        history.push('/placeOrder')
+        history.push('/placeorder')
     }
 
     return (

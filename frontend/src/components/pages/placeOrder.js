@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, ListGroup, Image } from 'react-bootstrap';
+import { Container, Row, Col, ListGroup, Image, Button } from 'react-bootstrap';
 import {useSelector} from 'react-redux';
 const PlaceOrder = () => {
 
@@ -24,6 +24,10 @@ const PlaceOrder = () => {
 
     const grandTotalPriceonOrder = () => {
         return addDecimals(Number(itemsPriceOnOrder()) + Number(shippingPriceOnOrder()) + Number(taxPriceOnOrder()))
+    }
+
+    const PlaceOrderhandler = () => {
+        
     }
 
   return (
@@ -82,7 +86,11 @@ const PlaceOrder = () => {
                         ))
                     }
                 </ListGroup>
+                <ListGroup className="mt-4">
+                    <Button type="submit" className="btn btn-dark" onClick={PlaceOrderhandler}>Place Order</Button>
+                </ListGroup>
             </Col>
+            
         </Row>
       </Container>
   )  
