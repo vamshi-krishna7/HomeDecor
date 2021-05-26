@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CART_ADD_ITEM, CART_REMOVE_ITEM, SAVE_SHIPPING_ADDRESS } from '../types.js';
+import { CART_ADD_ITEM, CART_REMOVE_ITEM, SAVE_SHIPPING_ADDRESS, SAVE_PAYMENT_METHOD } from '../types.js';
 
 export const addToCart = (id, qty) => async(dispatch, getState) => {
     const res = await axios.get(`/products/${id}`)
@@ -31,4 +31,13 @@ export const saveShippingAddress = (address, city, pincode) => async(dispatch, g
     })
 
     localStorage.setItem('shippingAddress', JSON.stringify(getState().cart.shippingAddress))
+}
+
+export const savePaymentMethod = (payment) => async(dispatch, getState) => {
+    dispatch({
+        type: SAVE_PAYMENT_METHOD,
+        payload: payment
+    })
+
+    localStorage.setItem('paymentMethod', JSON.stringify(getState().cart.paymentMethod))
 }

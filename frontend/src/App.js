@@ -7,6 +7,7 @@ import Cart from './components/pages/cart';
 import Login from './components/pages/login';
 import Profile from './components/pages/profile';
 import Shipping from './components/pages/shipping';
+import PlaceOrder from './components/pages/placeOrder';
 import Register from './components/pages/register';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ProductInfo from './components/pages/productInfo';
@@ -23,6 +24,7 @@ const App = () => {
               <Route path='/register' component={Register} />
               <Route path='/profile' component={Profile} />
               <Route path='/shipping' component={Shipping} />
+              <Route path='/placeOrder' component={PlaceOrder} />
               <Route path='/product/:id' component={ProductInfo} />
               <Route path='/cart/:id?' component={Cart} />
             </Switch> 
