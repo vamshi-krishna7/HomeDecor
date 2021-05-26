@@ -24,7 +24,7 @@ const App = () => {
               <Route path='/register' component={Register} />
               <Route path='/profile' component={Profile} />
               <Route path='/shipping' component={Shipping} />
-              <Route path='/placeOrder' component={PlaceOrder} />
+              <Route path='/placeorder' component={PlaceOrder}/>
               <Route path='/product/:id' component={ProductInfo} />
               <Route path='/cart/:id?' component={Cart} />
             </Switch> 

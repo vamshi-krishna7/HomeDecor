@@ -31,42 +31,42 @@ const PlaceOrder = () => {
         <Row className="justify-content-md-center">
             <Col xs={12} md={8} >
                 <ListGroup className="mt-3" >
-                <ListGroup.Item className="text-center">Order Summary</ListGroup.Item>
+                <ListGroup.Item className="text-center font-weight-bold">Order Summary</ListGroup.Item>
                     <ListGroup.Item>
                         <Row className="d-flex justify-content-between">
-                            <Col xs={4}>Items</Col>
+                            <Col xs={6}>Items</Col>
                             <Col xs={4}>{itemsPriceOnOrder()}</Col>
                         </Row>
                     </ListGroup.Item>
                     <ListGroup.Item>
                         <Row className="d-flex justify-content-between">
-                            <Col xs={4}>Shipping Charges</Col>
+                            <Col xs={6}>Shipping Charges</Col>
                             <Col xs={4}>{shippingPriceOnOrder()}</Col>
                         </Row>
                     </ListGroup.Item>
                     <ListGroup.Item>
                         <Row className="d-flex justify-content-between">
-                            <Col xs={4}>Tax (18% GST)</Col>
+                            <Col xs={6}>Tax (18% GST)</Col>
                             <Col xs={4}>{taxPriceOnOrder()}</Col>
                         </Row>
                      </ListGroup.Item>
                     <ListGroup.Item>
                         <Row className="d-flex justify-content-between">
-                            <Col xs={4}>Total</Col>
-                            <Col xs={4}>{grandTotalPriceonOrder()}</Col>
+                            <Col xs={6} className="font-weight-bold">Total</Col>
+                            <Col xs={4} className="font-weight-bold">{grandTotalPriceonOrder()}</Col>
                         </Row> 
                     </ListGroup.Item>
                 </ListGroup>
                 <ListGroup className="mt-3" >
-                <ListGroup.Item className="text-center">Shipping Details</ListGroup.Item>
+                <ListGroup.Item className="text-center font-weight-bold">Shipping Details</ListGroup.Item>
                 <ListGroup.Item>Address: {shippingAddress.address}, {shippingAddress.city}, {shippingAddress.pincode}</ListGroup.Item>
                 </ListGroup>
                 <ListGroup className="mt-3" >
-                <ListGroup.Item className="text-center">Payment Details</ListGroup.Item>
+                <ListGroup.Item className="text-center font-weight-bold">Payment Details</ListGroup.Item>
                 <ListGroup.Item>Method: {paymentMethod}</ListGroup.Item>
                 </ListGroup>
                 <ListGroup className="mt-3" varaint="flush">
-                    <ListGroup.Item className="text-center">Order Items</ListGroup.Item>
+                    <ListGroup.Item className="text-center font-weight-bold">Order Items</ListGroup.Item>
                     {
                         cartItems.map((item) => (
                             <ListGroup.Item key={item.name}>  
