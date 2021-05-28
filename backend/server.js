@@ -5,6 +5,7 @@ const path = require('path');
 const connectDb = require('./db');
 const products = require('./routes/products');
 const user = require('./routes/user');
+const order = require('./routes/order');
 const {errorMiddleware, notFound} = require('./errorMiddleware');
 
 dotenv.config({path: 'config/.env'})
@@ -15,6 +16,7 @@ connectDb();
 
 app.use('/products', products)
 app.use('/user', user)
+app.use('/order', order)
 
 // console.log(path.join(__dirname, '../frontend/build')) 
 

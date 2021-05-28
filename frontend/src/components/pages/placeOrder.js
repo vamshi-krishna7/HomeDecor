@@ -1,33 +1,57 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Container, Row, Col, ListGroup, Image, Button } from 'react-bootstrap';
-import {useSelector} from 'react-redux';
-const PlaceOrder = () => {
+import {useSelector, useDispatch} from 'react-redux';
+import {placeOrderAction} from '../../actions/orderActions';
 
+const PlaceOrder = ({history}) => {
+    const dispatch = useDispatch()
     const cart = useSelector((state) => state.cart)
     const {shippingAddress, cartItems, paymentMethod} = cart
+
+    const placeOrder = useSelector((state) => state.placeOrder)
+    const {loading, success, error} = placeOrder
+
+    var itemPrice, shippingPrice, taxPrice, grandTotal
 
     const addDecimals = (num) => {
         return ((num/100)*100).toFixed(2)
     }
 
     const itemsPriceOnOrder = () => {
+        itemPrice = addDecimals(Number(cartItems.reduce((acc, item) => acc + (item.price * item.qty), 0)))
         return addDecimals(Number(cartItems.reduce((acc, item) => acc + (item.price * item.qty), 0)))
     }
 
     const shippingPriceOnOrder = () => {
+        shippingPrice = cartItems.reduce((acc, item) => item.price * item.qty, 0) < 1000  ? 100 : 0
        return cartItems.reduce((acc, item) => item.price * item.qty, 0) < 1000  ? 100 : 0
     }
 
     const taxPriceOnOrder = () => {
+        taxPrice = (addDecimals(Number(cartItems.reduce((acc, item) => item.price * item.qty, 0)/100 *18)))
         return (addDecimals(Number(cartItems.reduce((acc, item) => item.price * item.qty, 0)/100 *18)))
     }
 
-    const grandTotalPriceonOrder = () => {
+    const grandTotalPriceOnOrder = () => {
+        grandTotal = addDecimals(Number(itemsPriceOnOrder()) + Number(shippingPriceOnOrder()) + Number(taxPriceOnOrder()))
         return addDecimals(Number(itemsPriceOnOrder()) + Number(shippingPriceOnOrder()) + Number(taxPriceOnOrder()))
     }
 
+    useEffect(() => {
+        if(success) {
+            history.push('/welldone')
+        }
+    }, [history, success])
+
     const PlaceOrderhandler = () => {
-        
+        dispatch(placeOrderAction({
+            orderItems: cartItems,
+            shippingAddress,
+            paymentMethod,
+            taxPrice,
+            shippingPrice,
+            totalPrice: grandTotal 
+        }))
     }
 
   return (
@@ -57,7 +81,7 @@ const PlaceOrder = () => {
                     <ListGroup.Item>
                         <Row className="d-flex justify-content-between">
                             <Col xs={6} className="font-weight-bold">Total</Col>
-                            <Col xs={4} className="font-weight-bold">{grandTotalPriceonOrder()}</Col>
+                            <Col xs={4} className="font-weight-bold">{grandTotalPriceOnOrder()}</Col>
                         </Row> 
                     </ListGroup.Item>
                 </ListGroup>

@@ -12,14 +12,14 @@ export default (state=initialState, action) => {
       case CART_ADD_ITEM:
         const item = action.payload;
         const existItem = state.cartItems.find(
-          (x) => x.productId === item.productId
+          (x) => x.product === item.product
         );
 
         if (existItem) {
           return {
             ...state,
             cartItems: state.cartItems.map((x) =>
-              x.productId === existItem.productId ? item : x
+              x.product === existItem.product ? item : x
             ),
           };
         } else {
