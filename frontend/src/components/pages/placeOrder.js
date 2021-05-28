@@ -7,6 +7,7 @@ const PlaceOrder = ({history}) => {
     const dispatch = useDispatch()
     const cart = useSelector((state) => state.cart)
     const {shippingAddress, cartItems, paymentMethod} = cart
+    console.log(cartItems)
 
     const placeOrder = useSelector((state) => state.placeOrder)
     const {loading, success, error} = placeOrder

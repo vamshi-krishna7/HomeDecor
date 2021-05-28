@@ -3,10 +3,8 @@ const asyncHandler  = require('express-async-handler');
 
 
 const placeOrder = asyncHandler(async(req, res) => {
-    console.log(req.body)
     const {orderItems, shippingAddress, paymentMethod, taxPrice, shippingPrice, totalPrice} = req.body;
     if(orderItems && orderItems.length === 0){
-        console.log('came here ')
         return res.status(400).json({msg: 'No Order items'})
     }else {
         
@@ -21,14 +19,22 @@ const placeOrder = asyncHandler(async(req, res) => {
         })
     
         const placeOrder = await order.save()
-        console.log('saved')
         return res.status(201).json(placeOrder)
-
-    
     }
 })
 
-module.exports = {placeOrder}
+const getOrderById = asyncHandler(async(req, res) => {
+    
+    const order = await Order.findById(req.params.id).populate('user', 'name email')
+
+    if(order) {
+        res.status(404).json({msg:"order not found"})
+    }else {
+        return res.status(200).json(order)
+    }
+})
+
+module.exports = {placeOrder, getOrderById}
 
 
 
