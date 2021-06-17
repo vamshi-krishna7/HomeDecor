@@ -1,16 +1,15 @@
 import React, {useEffect} from 'react';
 import { Container, Row, Col, ListGroup, Image, Button } from 'react-bootstrap';
 import {useSelector, useDispatch} from 'react-redux';
-import {placeOrderAction} from '../../actions/orderActions';
+import {placeOrderAction} from '../../actions/placeOrderActions';
 
 const PlaceOrder = ({history}) => {
     const dispatch = useDispatch()
     const cart = useSelector((state) => state.cart)
     const {shippingAddress, cartItems, paymentMethod} = cart
-    console.log(cartItems)
 
     const placeOrder = useSelector((state) => state.placeOrder)
-    const {loading, success, error} = placeOrder
+    const {loading, success, error, order} = placeOrder
 
     var itemPrice, shippingPrice, taxPrice, grandTotal
 
@@ -40,7 +39,7 @@ const PlaceOrder = ({history}) => {
 
     useEffect(() => {
         if(success) {
-            history.push('/welldone')
+            history.push(`/order/${order._id}`)
         }
     }, [history, success])
 

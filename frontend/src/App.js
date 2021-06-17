@@ -8,6 +8,7 @@ import Login from './components/pages/login';
 import Profile from './components/pages/profile';
 import Shipping from './components/pages/shipping';
 import PlaceOrder from './components/pages/placeOrder';
+import Order from './components/pages/order';
 import Register from './components/pages/register';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ProductInfo from './components/pages/productInfo';
@@ -25,6 +26,7 @@ const App = () => {
               <Route path='/profile' component={Profile} />
               <Route path='/shipping' component={Shipping} />
               <Route path='/placeorder' component={PlaceOrder}/>
+              <Route path='/order/:id' component={Order}/>
               <Route path='/product/:id' component={ProductInfo} />
               <Route path='/cart/:id?' component={Cart} />
             </Switch> 

@@ -26,8 +26,7 @@ const placeOrder = asyncHandler(async(req, res) => {
 const getOrderById = asyncHandler(async(req, res) => {
     
     const order = await Order.findById(req.params.id).populate('user', 'name email')
-
-    if(order) {
+    if(!order) {
         res.status(404).json({msg:"order not found"})
     }else {
         return res.status(200).json(order)

@@ -16,14 +16,12 @@ export const placeOrderAction = (order) => async(dispatch, getState) => {
     }
 
     const {data} = await axios.post('/order',order, config)
-    console.log(data)
 
     dispatch({
         type: PLACE_ORDER_SUCCESS,
         payload: data
     })
     }catch(error) {
-        console.error(error)
         dispatch({
             type: PLACE_ORDER_FAIL,
             payload: error.response.data.msg

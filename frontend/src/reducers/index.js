@@ -6,6 +6,7 @@ import userReducer from './userReducer';
 import alertReducer from './alertReducer';
 import userProfileReducer from './userProfileReducer';
 import placeOrderReducer from './placeOrderReducer';
+import orderDetailReducer from './orderDetailReducer';
 
 export default combineReducers({
     productList: productReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
     user: userReducer,
     alert: alertReducer,
     userProfile: userProfileReducer,
-    placeOrder: placeOrderReducer
+    placeOrder: placeOrderReducer,
+    orderDetail: orderDetailReducer
 })
